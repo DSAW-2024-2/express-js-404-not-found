@@ -29,7 +29,4 @@ app.get("/user-info/:index", (request, response) => {
     response.send({ message: "User not found" });
   }
 });
-app.set("port", 3000);
-app.listen("3000", () => {
-  console.log("Server is running");
-});
+
