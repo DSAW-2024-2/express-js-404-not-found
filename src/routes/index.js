@@ -1,3 +1,4 @@
+<<<<<<< HEAD:index.js
 const express = require("express");
 const app = express();
 
@@ -5,6 +6,12 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 
 app.get("/user-info/:index", (request, response) => {
+=======
+const { Router } = require("express");
+const router = Router();
+
+router.get("/user-info/:index", (request, response) => {
+>>>>>>> 0337444265dbfce6aac89ace1716ebcfa64f8a43:src/routes/index.js
   const index = request.params.index;
   const users = [
     {
@@ -29,7 +36,12 @@ app.get("/user-info/:index", (request, response) => {
     response.send({ message: "User not found" });
   }
 });
+<<<<<<< HEAD:index.js
 app.set("port", port);
 app.listen(port, () => {
   console.log("Server is running");
 });
+=======
+
+module.exports = router;
+>>>>>>> 0337444265dbfce6aac89ace1716ebcfa64f8a43:src/routes/index.js
