@@ -1,11 +1,7 @@
-const express = require("express");
-const cors = require("cors");
-const app = express();
+const { Router } = require("express");
+const router = Router();
 
-app.use(cors());
-app.use(express.json());
-
-app.get("/user-info/:index", (request, response) => {
+router.get("/user-info/:index", (request, response) => {
   const index = request.params.index;
   const users = [
     {
@@ -29,7 +25,5 @@ app.get("/user-info/:index", (request, response) => {
     response.send({ message: "User not found" });
   }
 });
-app.set("port", 3000);
-app.listen("3000", () => {
-  console.log("Server is running");
-});
+
+module.exports = router;
