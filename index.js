@@ -1,8 +1,7 @@
 const express = require("express");
-const cors = require("cors");
 const app = express();
 
-app.use(cors());
+const port = process.env.PORT || 3000;
 app.use(express.json());
 
 app.get("/user-info/:index", (request, response) => {
@@ -21,6 +20,7 @@ app.get("/user-info/:index", (request, response) => {
       id: "0000310594",
     },
   ];
+
   try {
     const user = users[index - 1];
     response.send(user);
@@ -29,7 +29,7 @@ app.get("/user-info/:index", (request, response) => {
     response.send({ message: "User not found" });
   }
 });
-app.set("port", 3000);
-app.listen("3000", () => {
+app.set("port", port);
+app.listen(port, () => {
   console.log("Server is running");
 });
