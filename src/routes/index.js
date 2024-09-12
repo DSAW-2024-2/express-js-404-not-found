@@ -1,8 +1,12 @@
 <<<<<<< HEAD:index.js
 const express = require("express");
 const app = express();
+<<<<<<< HEAD:src/routes/index.js
 
 const port = process.env.PORT || 3000;
+=======
+app.use(cors());
+>>>>>>> parent of b31755b (Parte de Mao):index.js
 app.use(express.json());
 
 app.get("/user-info/:index", (request, response) => {
@@ -15,18 +19,13 @@ router.get("/user-info/:index", (request, response) => {
   const index = request.params.index;
   const users = [
     {
-      name: "Mauricio",
-      lastName: "Suarez Barrera",
-      email: "mauriciosuba@unisabana.edu.co",
-      id: "0000300562",
-    },
-    {
       name: "Isabela",
       lastName: "Diaz Acosta",
       email: "isabeladiac@unisabana.edu.co",
       id: "0000310594",
     },
   ];
+<<<<<<< HEAD:src/routes/index.js
 
   try {
     const user = users[index - 1];
@@ -35,6 +34,8 @@ router.get("/user-info/:index", (request, response) => {
     response.status(404);
     response.send({ message: "User not found" });
   }
+=======
+>>>>>>> parent of b31755b (Parte de Mao):index.js
 });
 <<<<<<< HEAD:index.js
 app.set("port", port);
