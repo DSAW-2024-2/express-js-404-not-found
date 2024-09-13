@@ -1,10 +1,15 @@
-import express, { Router } from "express";
-import serverless from "serverless-http";
+const express = require("express");
+const app = express();
 
-const api = express();
+const cors = require("cors");
 
-const router = Router();
+app.use(cors());
+app.use(express.json());
 
-api.use("/api/", router);
+app.use(require("./Routes/index.js"));
 
-export const handler = serverless(api);
+let port = process.env.PORT || 3000;
+app.set("port", port);
+app.listen(app.get("port"), () => {
+  console.log(`server is running on port ${port}`);
+});
