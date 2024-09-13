@@ -1,8 +1,9 @@
-const express = require("express");
+import express, { Router } from "express";
+import serverless from "serverless-http";
 
-const app = express();
-const port = process.env.PORT || 3000;
-app.use(express.json());
+const api = express();
+
+const router = Router();
 
 app.get("/user-info/:index", (request, response) => {
   const index = request.params.index;
@@ -29,7 +30,7 @@ app.get("/user-info/:index", (request, response) => {
     response.send({ message: "User not found" });
   }
 });
-app.set("port", port);
-app.listen(port, () => {
-  console.log("Server is running");
-});
+
+api.use("/api/", router);
+
+export const handler = serverless(api);
